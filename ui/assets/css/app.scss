@@ -1,0 +1,196 @@
+/* This file is for your main application css. */
+@import "./phoenix.css";
+@import "../node_modules/nprogress/nprogress.css";
+
+:root {
+  --sbase03:    #002b36;
+  --sbase02:    #073642;
+  --sbase01:    #586e75;
+  --sbase00:    #657b83;
+  --sbase0:     #839496;
+  --sbase1:     #93a1a1;
+  --sbase2:     #eee8d5;
+  --sbase3:     #fdf6e3;
+  --syellow:    #b58900;
+  --sorange:    #cb4b16;
+  --sred:       #dc322f;
+  --smagenta:   #d33682;
+  --sviolet:    #6c71c4;
+  --sblue:      #268bd2;
+  --scyan:      #2aa198;
+  --sgreen:     #859900;
+}
+
+body {
+    background-color: var(--sbase03);
+    color: var(--sbase0);
+    font-family: monospace;
+}
+label {
+    color: var(--sbase1);
+}
+input[type="text"], input[type="number"] {
+    background-color: var(--sbase02);
+    color: var(--sbase1);
+    font-weight: bold;
+}
+button, input[type="submit"] {
+    background-color: var(--sblue);
+    color: var(--sbase2);
+}
+button:hover, input[type="submit"]:hover {
+    background-color: var(--sbase00);
+    color: var(--sbase3);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: small;
+    font-style: italic;
+}
+.login {
+    display: table;
+}
+.login > div {
+    display: table-row;
+}
+.login > div > label, .login > div > input {
+    display: table-cell;
+}
+.login > div > label {
+    padding-right: 8px;
+}
+.login > div > input[type="number"] {
+    width: 4em;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: repeat(4, min-content);
+    grid-template-columns: repeat(4, min-content);
+    grid-column-gap: 8px
+}
+.wrapper > div {
+    line-height: 4rem;
+}
+.wrapper > div > button {
+    width: 100%;
+}
+.wrapper > div > input {
+    text-align: center;
+    width: 3em;
+}
+.wrapper > .submit {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.wrapper > hr {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin: 0 0 3rem 0;
+}
+
+.results {
+    display: table;
+}
+.results > h3 {
+    color: var(--sbase3);
+    font-weight: bold;
+    font-style: italic;
+}
+.results > pre {
+    background-color: var(--sbase0);
+    color: var(--sbase03);
+}
+
+/* LiveView specific classes for your customizations */
+.phx-no-feedback.invalid-feedback,
+.phx-no-feedback .invalid-feedback {
+  display: none;
+}
+
+.phx-click-loading {
+  opacity: 0.5;
+  transition: opacity 1s ease-out;
+}
+
+.phx-disconnected{
+  cursor: wait;
+}
+.phx-disconnected *{
+  pointer-events: none;
+}
+
+.phx-modal {
+  opacity: 1!important;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.phx-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.phx-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.phx-modal-close:hover,
+.phx-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Alerts and form errors */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+.invalid-feedback {
+  color: #a94442;
+  display: block;
+  margin: -1rem 0 2rem;
+}

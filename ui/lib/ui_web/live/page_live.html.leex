@@ -1,0 +1,73 @@
+<%= if is_nil(@user) do %>
+    <form class="login" phx-submit="login">
+        <div>
+            <label>Name</label>
+            <input type="text" required minlength="2" value="<%= @user %>" name="user">
+        </div>
+        <div>
+            <label>Brutal</label>
+            <input type="number" required min="0" max="3" value="<%= @brutal %>" name="brutal">
+        </div>
+        <div>
+            <label>Bold</label>
+            <input type="number" required min="0" max="3" value="<%= @bold %>" name="bold">
+        </div>
+        <div>
+            <label>Cautious</label>
+            <input type="number" required min="0" max="3" value="<%= @cautious %>" name="cautious">
+        </div>
+        <div>
+            <label>Clever</label>
+            <input type="number" required min="0" max="3" value="<%= @clever %>" name="clever">
+        </div>
+        <div>
+            <label>Covert</label>
+            <input type="number" required min="0" max="3" value="<%= @covert %>" name="covert">
+        </div>
+        <div>
+            <label>Fast</label>
+            <input type="number" required min="0" max="3" value="<%= @fast %>" name="fast">
+        </div>
+
+        <input type="submit" value="login">
+    </form>
+<% else %>
+    <div class="wrapper">
+        <div><label>Brutal</label></div>
+        <div><input type="text" readonly name="brutal" value="<%= @brutal %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="brutal">roll brutal</div>
+
+        <div><label>Bold</label></div>
+        <div><input type="text" readonly name="bold" value="<%= @bold %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="bold">roll bold</div>
+
+        <div><label>Cautious</label></div>
+        <div><input type="text" readonly name="cautious" value="<%= @cautious %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="cautious">roll cautious</div>
+
+        <div><label>Clever</label></div>
+        <div><input type="text" readonly name="clever" value="<%= @clever %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="clever">roll clever</div>
+
+        <div><label>Covert</label></div>
+        <div><input type="text" readonly name="covert" value="<%= @covert %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="covert">roll covert</div>
+
+        <div><label>Fast</label></div>
+        <div><input type="text" readonly name="fast" value="<%= @fast %>"></div>
+        <div class="submit"><button phx-click="roll" phx-value-approach="fast">roll fast</div>
+
+        <div><label><i>modifiers</i></label></div>
+        <div><input type="text" readonly value="<%= @modifiers %>"></div>
+        <div><button phx-click="mod-inc">+</button></div>
+        <div><button phx-click="mod-dec">-</button></div>
+
+        <hr/>
+    </div>
+    <%= if @result do %>
+    <div class="results">
+        <h3><%= @result.ladder %> <%= @result.approach %> approach!</h3>
+        <pre><%= @result.rolls %> = <%= @result.effort %></pre>
+    </div>
+    <% end %>
+<% end %>
